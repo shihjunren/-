@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MyHWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="OD">
+          <Key>
+            <PropertyRef Name="訂單ID" />
+          </Key>
+          <Property Name="訂單ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="訂購電話" Type="nvarchar" MaxLength="50" />
+          <Property Name="雞排_份" Type="int" />
+          <Property Name="鹹酥雞_份" Type="int" />
+          <Property Name="雞心_串" Type="int" />
+          <Property Name="雞胗_串" Type="int" />
+          <Property Name="雞屁股_串" Type="int" />
+          <Property Name="甜不辣_份" Type="int" />
+          <Property Name="薯條_份" Type="int" />
+          <Property Name="季節蔬菜_份" Type="int" />
+          <Property Name="辣度" Type="nvarchar" MaxLength="200" />
+          <Property Name="外送" Type="bit" />
+          <Property Name="總金額" Type="int" />
+          <Property Name="訂單時間" Type="datetime" />
+          <Property Name="訂單狀態" Type="bit" />
+        </EntityType>
+        <EntityType Name="persons">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="帳號_電話" Type="nvarchar" MaxLength="50" />
+          <Property Name="密碼" Type="nvarchar" MaxLength="50" />
+          <Property Name="姓名" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="生日" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="MyHWModelStoreContainer">
+          <EntitySet Name="OD" EntityType="Self.OD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="persons" EntityType="Self.persons" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyHWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OD">
+          <Key>
+            <PropertyRef Name="訂單ID" />
+          </Key>
+          <Property Name="訂單ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="訂購電話" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="雞排_份" Type="Int32" />
+          <Property Name="鹹酥雞_份" Type="Int32" />
+          <Property Name="雞心_串" Type="Int32" />
+          <Property Name="雞胗_串" Type="Int32" />
+          <Property Name="雞屁股_串" Type="Int32" />
+          <Property Name="甜不辣_份" Type="Int32" />
+          <Property Name="薯條_份" Type="Int32" />
+          <Property Name="季節蔬菜_份" Type="Int32" />
+          <Property Name="辣度" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="外送" Type="Boolean" />
+          <Property Name="總金額" Type="Int32" />
+          <Property Name="訂單時間" Type="DateTime" Precision="3" />
+          <Property Name="訂單狀態" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="persons">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="帳號_電話" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="密碼" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="姓名" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="生日" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="MyHWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OD" EntityType="Self.OD" />
+          <EntitySet Name="persons" EntityType="Self.persons" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MyHWModelStoreContainer" CdmEntityContainer="MyHWEntities">
+          <EntitySetMapping Name="OD">
+            <EntityTypeMapping TypeName="MyHWModel.OD">
+              <MappingFragment StoreEntitySet="OD">
+                <ScalarProperty Name="訂單ID" ColumnName="訂單ID" />
+                <ScalarProperty Name="訂購電話" ColumnName="訂購電話" />
+                <ScalarProperty Name="雞排_份" ColumnName="雞排_份" />
+                <ScalarProperty Name="鹹酥雞_份" ColumnName="鹹酥雞_份" />
+                <ScalarProperty Name="雞心_串" ColumnName="雞心_串" />
+                <ScalarProperty Name="雞胗_串" ColumnName="雞胗_串" />
+                <ScalarProperty Name="雞屁股_串" ColumnName="雞屁股_串" />
+                <ScalarProperty Name="甜不辣_份" ColumnName="甜不辣_份" />
+                <ScalarProperty Name="薯條_份" ColumnName="薯條_份" />
+                <ScalarProperty Name="季節蔬菜_份" ColumnName="季節蔬菜_份" />
+                <ScalarProperty Name="辣度" ColumnName="辣度" />
+                <ScalarProperty Name="外送" ColumnName="外送" />
+                <ScalarProperty Name="總金額" ColumnName="總金額" />
+                <ScalarProperty Name="訂單時間" ColumnName="訂單時間" />
+                <ScalarProperty Name="訂單狀態" ColumnName="訂單狀態" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="persons">
+            <EntityTypeMapping TypeName="MyHWModel.persons">
+              <MappingFragment StoreEntitySet="persons">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="帳號_電話" ColumnName="帳號_電話" />
+                <ScalarProperty Name="密碼" ColumnName="密碼" />
+                <ScalarProperty Name="姓名" ColumnName="姓名" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="生日" ColumnName="生日" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
